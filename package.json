@@ -1,0 +1,27 @@
+{
+  "name": "sns-event-sender",
+  "version": "1.0.0",
+  "description": "Used to send events to Amazon Simple Notification Service.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pratilipi/sns-event-sender.git"
+  },
+  "keywords": [
+    "sns",
+    "aws",
+    "events"
+  ],
+  "author": "Amit Saxena <amit@pratilipi.com> (https://www.pratilipi.com/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/pratilipi/sns-event-sender/issues"
+  },
+  "homepage": "https://github.com/pratilipi/sns-event-sender#readme",
+  "dependencies": {
+    "aws-sdk": "^2.104.0"
+  }
+}
