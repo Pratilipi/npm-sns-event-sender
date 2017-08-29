@@ -1,6 +1,7 @@
 var AWS = require('aws-sdk');
 var sns = new AWS.SNS();
 var topicArn;
+var whitelist = [];
 
 module.exports = {
 
@@ -13,6 +14,9 @@ module.exports = {
 
     if(!name)
       return callback(new Error('Event name has not been set'));
+
+    if(whitelist.length > 0 && whitelist.indexOf(name) === -1)
+      return callback(new Error('Event name has not been whitelisted. Use setWhitelist to pass an array of allowed events.'));
 
     data['name'] = name;
     var params = {
@@ -50,5 +54,14 @@ module.exports = {
    */
   setTopic: function (topic) {
     topicArn = topic;
+  },
+
+  /**
+   * Set event whitelist i.e. an array of allowed events names in case you want to control
+   * type of events passed to SNS.
+   * If you do not set this, by default the module will allow all event names
+   */
+  setWhitelist: function (events) {
+    whitelist = events;
   }
 };
