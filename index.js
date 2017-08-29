@@ -16,7 +16,7 @@ module.exports = {
       return callback(new Error('Event name has not been set'));
 
     if(whitelist.length > 0 && whitelist.indexOf(name) === -1)
-      return callback(new Error('Event name has not been whitelisted. Use setWhitelist to pass an array of allowed events.'));
+      return callback(new Error('Event name has not been whitelisted. Use setWhitelist function to pass an array of allowed events.'));
 
     data['name'] = name;
     var params = {
@@ -63,5 +63,12 @@ module.exports = {
    */
   setWhitelist: function (events) {
     whitelist = events;
+  },
+
+  /**
+   * Get an array of whitelisted event names
+   */
+  getWhitelist: function () {
+    return whitelist;
   }
 };
